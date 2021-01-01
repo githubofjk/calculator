@@ -1,4 +1,5 @@
 let displayValues = [];
+let inputNumber = "";
 
 const btnClear = document.querySelector("#btnClear");
 btnClear.addEventListener("click", clear);
@@ -36,16 +37,19 @@ function clear(e) {
 }
 
 function displayInput(e) {
-    displayValues.push(e.target.textContent);
     display.textContent += e.target.textContent;
+    inputNumber += e.target.textContent;
 }
 
 function displayOperator(e) {
+    displayValues.push(inputNumber);
+    inputNumber = "";
     displayValues.push(e.target.textContent);
     display.textContent += " " + e.target.textContent + " ";
 }
 
 function operate(e) {
+    displayValues.push(inputNumber);
     let operator;
 
     let result = displayValues.reduce((total, input, index) => {
