@@ -3,6 +3,7 @@
     border-color: black;
     border-width: 1px;
     height: 20px;
+    width: auto;
 }
 
 #inputs {
@@ -11,4 +12,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     height: fit-content;
     width: fit-content;
+}
+
+.operator {
+    background: chartreuse;
 }
