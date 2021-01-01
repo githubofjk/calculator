@@ -24,25 +24,8 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) {
-        return "Can not divide by zero";
-    }
     return a / b;
 }
-
-/**
-function operate(operator, a, b) {
-    if (operator === add) {
-        return add(a, b);
-    } else if (operator === subtract) {
-        return subtract(a, b);
-    } else if (operator === multiply) {
-        return multiply(a, b);
-    } else {
-        return divide(a, b);
-    }
-}
-*/
 
 function clear(e) {
     displayValues.splice(0, displayValues.length);
@@ -57,17 +40,29 @@ function displayInput(e) {
 function operate(e) {
     let operator;
     let result = displayValues.reduce((total, input, index) => {
+        // assume first value in array is number, add to total
         if (index === 0) {
             return parseInt(input);
         }
-
+        // check if array value is number or operator
         if (!parseInt(input)) {
             operator = input;
             return total;
         }
 
+        //TODO doesn't recognize 0
+        if (input === "0") {
+            console.log(`${input}`);
+        }
+
         if (operator === "+") {
             return add(total, parseInt(input));
+        } else if (operator === "-") {
+            return subtract(total, parseInt(input));
+        } else if (operator === "*") {
+            return multiply(total, parseInt(input));
+        } else {
+            return divide(total, parseInt(input));
         }
     }, 0);
 
