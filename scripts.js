@@ -9,6 +9,9 @@ btnEquals.addEventListener("click", operate);
 const btnInputs = Array.from(document.querySelectorAll(".inputDisplay"));
 btnInputs.forEach(input => input.addEventListener("click", displayInput));
 
+const btnOperators = Array.from(document.querySelectorAll(".operator"));
+btnOperators.forEach(operator => operator.addEventListener("click", displayOperator));
+
 const display = document.querySelector("#display");
 
 function add(a, b) {
@@ -34,13 +37,19 @@ function clear(e) {
 
 function displayInput(e) {
     displayValues.push(e.target.textContent);
-    display.textContent += " " + e.target.textContent;
+    display.textContent += e.target.textContent;
+}
+
+function displayOperator(e) {
+    displayValues.push(e.target.textContent);
+    display.textContent += " " + e.target.textContent + " ";
 }
 
 function operate(e) {
     let operator;
+
     let result = displayValues.reduce((total, input, index) => {
-        // assume first value in array is number, add to total
+        // assume first value in array is number, return to total
         if (index === 0) {
             return parseInt(input);
         }
