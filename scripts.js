@@ -32,7 +32,8 @@ function divide(a, b) {
 }
 
 function clear(e) {
-    displayValues.splice(0, displayValues.length);
+    displayValues = [];
+    // displayValues.splice(0, displayValues.length);
     display.textContent = "";
 }
 
@@ -50,6 +51,8 @@ function displayOperator(e) {
 
 function operate(e) {
     displayValues.push(inputNumber);
+    inputNumber = "";
+
     let operator;
 
     let result = displayValues.reduce((total, input, index) => {
