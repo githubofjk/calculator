@@ -1,0 +1,14 @@
+#display {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    height: 20px;
+}
+
+#inputs {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: fit-content;
+    width: fit-content;
+}
