@@ -58,29 +58,29 @@ function operate(e) {
     let result = displayValues.reduce((total, input, index) => {
         // assume first value in array is number, return to total
         if (index === 0) {
-            return parseInt(input);
+            return parseFloat(input);
         }
 
         // check if curent array value is an operator
-        if (isNaN(parseInt(input))) {
+        if (isNaN(parseFloat(input))) {
             operator = input;
             return total;
         }
 
         if (operator === "+") {
-            return add(total, parseInt(input));
+            return add(total, parseFloat(input));
         } else if (operator === "-") {
-            return subtract(total, parseInt(input));
+            return subtract(total, parseFloat(input));
         } else if (operator === "*") {
-            return multiply(total, parseInt(input));
+            return multiply(total, parseFloat(input));
         } else {
             // error message if divide by zero
-            if (parseInt(input) === 0) {
+            if (parseFloat(input) === 0) {
                 return "Infinity";
             }
-            return divide(total, parseInt(input));
+            return divide(total, parseFloat(input));
         }
     }, 0);
 
-    display.textContent = result;
+    display.textContent = parseFloat(result).toFixed(2);
 }
