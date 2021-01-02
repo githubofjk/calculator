@@ -33,7 +33,6 @@ function divide(a, b) {
 
 function clear(e) {
     displayValues = [];
-    // displayValues.splice(0, displayValues.length);
     display.textContent = "";
 }
 
@@ -45,6 +44,7 @@ function displayInput(e) {
 function displayOperator(e) {
     displayValues.push(inputNumber);
     inputNumber = "";
+
     displayValues.push(e.target.textContent);
     display.textContent += " " + e.target.textContent + " ";
 }
@@ -60,15 +60,11 @@ function operate(e) {
         if (index === 0) {
             return parseInt(input);
         }
-        // check if array value is number or operator
-        if (!parseInt(input)) {
+
+        // check if curent array value is an operator
+        if (isNaN(parseInt(input))) {
             operator = input;
             return total;
-        }
-
-        //TODO doesn't recognize 0
-        if (input === "0") {
-            console.log(`${input}`);
         }
 
         if (operator === "+") {
@@ -78,6 +74,10 @@ function operate(e) {
         } else if (operator === "*") {
             return multiply(total, parseInt(input));
         } else {
+            // error message if divide by zero
+            if (parseInt(input) === 0) {
+                return "Infinity";
+            }
             return divide(total, parseInt(input));
         }
     }, 0);
