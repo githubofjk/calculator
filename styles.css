@@ -3,7 +3,8 @@
     border-color: black;
     border-width: 1px;
     height: 20px;
-    width: auto;
+    width: fit-content;
+    min-width: 200px;
 }
 
 #container {
@@ -11,6 +12,7 @@
     grid-template-columns: 1fr 0.5fr 0.5fr;
     height: fit-content;
     width: fit-content;
+    min-width: 200px;
 }
 
 #inputs {
@@ -19,14 +21,18 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: fit-content;
     width: fit-content;
+    min-width: 150px;
 }
 
 #operators {
+    align-content: center;
+    vertical-align: middle;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: fit-content;
     width: fit-content;
+    min-width: 50px;
 }
 
 .operator {
