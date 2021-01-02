@@ -82,5 +82,10 @@ function operate(e) {
         }
     }, 0);
 
-    display.textContent = parseFloat(result).toFixed(2);
+    // round answers with long decimals so that they don’t overflow the scree
+    if (result % 1 === 0) {
+        display.textContent = result
+    } else {
+        display.textContent = parseFloat(result).toFixed(2);
+    }
 }
